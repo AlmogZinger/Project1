@@ -10,7 +10,7 @@ The program runs  a class of family
 #ifndef Family_h
 #define Family_h
 #include <fstream>
-#include <string>
+#include <queue>
 using namespace std;
 
 enum ACTIVITY {
@@ -37,8 +37,20 @@ public:
 			familyName[i] = name[i];
 	}
 
-	void setFile(fstream & myBinaryFile); //Update 100 places to families
-	void add(fstream& myBinaryFile); //Add a new family to the file
+	//Copy Constractor
+	Family(const Family & other) : id(other.id), amountPepole(other.amountPepole),
+			phoneNum(other.phoneNum), classList(other.classList) 
+	{
+		for (int i = 0; i < 20; i++) //Deep copy
+			familyName[i] = other.familyName[i];
+	}
+
+	void setFile(fstream & f); //Update 100 places to families
+	void add(fstream& f); //Add a new family to the file
+	void del(fstream& f,int ID); //Delete a family from the file
+	int count(fstream& f, ACTIVITY hog); //Count and return the amount of family that in the hog
+	void update(fstream& f, int ID, queue<Family> waitList); //
+	void updateClass(fstream& f, string msg, ACTIVITY hog, Family& wait, Family& temp);
 
 private:
 	int id;  //The id of the family.
