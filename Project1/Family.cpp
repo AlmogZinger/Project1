@@ -3,6 +3,33 @@
 #include <iostream>
 #include <fstream>
 
+ostream& operator<<(ostream& os, Family& fm)
+{
+
+	os << "family name: " << fm.familyName << endl
+		<< "number of persons: " << fm.amountPepole << endl
+		<< "phone number: " << fm.phoneNum << endl;
+
+	if (fm.classList & SWIMMING)
+		os << "SWIMMING" << endl;
+	if (fm.classList & GYMNATSTICS)
+		os << "GYMNATSTICS" << endl;
+	if (fm.classList & DANCE)
+		os << "DANCE" << endl;
+	if (fm.classList & ART)
+		os << "ART" << endl;
+	if (fm.classList & SELF_DEFENSE)
+		os << "SELF_DEFENSE " << endl;
+	if (fm.classList & MUSIC)
+		os << "MUSIC" << endl;
+	if (fm.classList & DRAMA)
+		os << "DRAMA" << endl;
+	if (fm.classList & BASKETBALL)
+		os << "BASKETBALL" << endl;
+
+	return os;
+}
+
 
 //void Family::setFile(fstream& f)
 //{
@@ -164,31 +191,6 @@
 //	}
 //}
 
-ostream& operator<<(ostream& os, Family& fm)
-{
-	os << "family name: " << fm.familyName << endl
-		<< "number of persons: " << fm.amountPepole << endl
-		<< "phone number: " << fm.phoneNum << endl;
-
-	if (fm.classList & SWIMMING)
-		os << "SWIMMING" << endl;
-	if (fm.classList & GYMNATSTICS)
-		os << "GYMNATSTICS" << endl;
-	if (fm.classList & DANCE)
-		os << "DANCE" << endl;
-	if (fm.classList & ART)
-		os << "ART" << endl;
-	if (fm.classList & SELF_DEFENSE)
-		os << "SELF_DEFENSE " << endl;
-	if (fm.classList & MUSIC)
-		os << "MUSIC" << endl;
-	if (fm.classList & DRAMA)
-		os << "DRAMA" << endl;
-	if (fm.classList & BASKETBALL)
-		os << "BASKETBALL" << endl;
-
-	return os;
-}
 
 //void Family::print(fstream& f, int ID) // Print the family.
 //{

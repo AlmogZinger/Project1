@@ -29,7 +29,7 @@ class Family
 public:
 	Family() : id(0), familyName(""), amountPepole(0), phoneNum(0), classList(NONE) {}//Empty constractor
 
-	Family(int ID, char name[], int  amount, int phone) : id(ID), amountPepole(amount), phoneNum(phone), classList(NONE) {//Constractor
+	Family(int ID, char name[20] , int  amount, int phone) : id(ID), amountPepole(amount), phoneNum(phone), classList(NONE) {//Constractor
 		for (int i = 0; i < 20; i++) //Deep copy
 			familyName[i] = name[i];
 	}
