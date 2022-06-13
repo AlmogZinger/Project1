@@ -23,7 +23,7 @@ enum { EXIT, ADD, DEL, COUNT, UPDATE, WAITING, PRINT };
 //	BASKETBALL = 128  // כדור סל
 //};
 
-void setFile(fstream& f)
+void setFile(fstream& f) // update the file with 100 empty families
 {
 	int sizeOfFamily = 100;
 	Family fm; //Crearte a empty family to update.
@@ -66,7 +66,6 @@ void add(fstream& f) //Add a new family to the file
 	f.seekg((new_id - 1) * sizeof(Family),ios::beg); //Move f to read to the spote of id family
 	f.read((char*)&temp, sizeof(Family)); //Read the data in the spote to temp family
 	if (temp.getId() == new_id) {
-		cout << temp.getId() << " this is \n";
 		throw Exception("ERROR: Family is already in the file");
 	}
 	//Write the famoily to the file
