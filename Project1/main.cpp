@@ -237,7 +237,6 @@ int main()
 {
 	queue<Family> q;
 
-	queue<Family> jv;
 	fstream file;
 	file.open("families.txt", ios::binary | ios::in | ios::out);
 	if (!file)
@@ -247,8 +246,9 @@ int main()
 	}
 
 	setFile(file);
-	file.clear();
+	file.close();
 
+	file.open("families.txt", ios::binary | ios::in | ios::out);
 	int choice;
 	int snum;
 	int cnum;
@@ -290,7 +290,7 @@ int main()
 				cout << "enter number of family to update:\n";
 				cin >> snum;
 				try {
-					update(file, snum, jv);
+					update(file, snum, q);
 				}
 				catch (exception& e) {
 					cout << e.what();
@@ -298,7 +298,7 @@ int main()
 				break;
 			case WAITING://update the list of classes of a waiting family
 				try {
-					waiting(jv);
+					waiting(q);
 				}
 				catch (exception& e) {
 					cout << e.what();
